@@ -100,7 +100,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (new_node == NULL)
 	{
 		free(valuecopy);
-		return (0);	}
+		return (0);
+	}
 	keycopy = strdup(key);
 	if (!keycopy)
 		return (0);
@@ -153,7 +154,8 @@ void shash_table_print(const shash_table_t *ht)
 	while (bucket)
 	{
 		if (not_fin)
-			printf(", ");		printf("'%s': '%s'", bucket->key, bucket->value);
+			printf(", ");
+		printf("'%s': '%s'", bucket->key, bucket->value);
 		not_fin = 1;
 		bucket = bucket->snext;
 	}
@@ -203,7 +205,8 @@ void shash_table_delete(shash_table_t *ht)
 		{
 			aux_free = bucket;
 			bucket = bucket->next;
-			if (aux_free->key)				free(aux_free->key);
+			if (aux_free->key)
+				free(aux_free->key);
 			if (aux_free->value)
 				free(aux_free->value);
 			free(aux_free);
